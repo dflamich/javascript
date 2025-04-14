@@ -1,0 +1,274 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Calculator</title>
+  </head>
+  <body>
+    <p>
+      <button 
+      style = "
+      width : 25px;
+      text-align: center;
+      "
+      onclick = "
+      calculation += '1';
+      console.log(calculation);
+      ">
+        1
+      </button>
+      <button
+      style = "
+      width : 25px;
+      text-align: center;
+      "
+      onclick = "
+      calculation += '2';
+      console.log(calculation);
+      ">
+        2
+      </button>
+      <button 
+      style = "
+      width : 25px;
+      text-align: center;
+      "
+      onclick = "
+      calculation += '3';
+      console.log(calculation);
+      ">
+        3
+      </button>
+      <button 
+      style = "
+      width : 25px;
+      text-align: center;
+      "
+      onclick = "
+      if (calculation !== '') {
+      calculation += ' + ';
+      console.log(calculation);
+      } else {
+      console.log('Please add a number first!')
+      }
+      
+      ">
+        +
+      </button>
+      <button 
+      style = "
+      width : 25px;
+      text-align: center;
+      "
+      onclick = "
+      calculation += '(';
+      console.log(calculation);
+      ">
+        (
+      </button>
+    </p>
+    <p>
+      <button 
+      style = "
+      width : 25px;
+      text-align: center;
+      "
+      onclick = "
+      calculation += '4';
+      console.log(calculation);
+      ">
+        4
+      </button>
+      <button 
+      style = "
+      width : 25px;
+      text-align: center;
+      "
+      onclick = "
+      calculation += '5';
+      console.log(calculation);
+      ">
+        5
+      </button>
+      <button 
+      style = "
+      width : 25px;
+      text-align: center;
+      "
+      onclick = "
+      calculation += '6';
+      console.log(calculation);
+      ">
+        6
+      </button>
+      <button 
+      style = "
+      width : 25px;
+      text-align: center;
+      "
+      onclick = "
+      if (calculation !== '') {
+      calculation += ' - ';
+      console.log(calculation);
+      } else {
+      console.log('Please add a number first!')
+      }
+      ">
+        -
+      </button>
+      <button 
+      style = "
+      width : 25px;
+      text-align: center;
+      "
+      onclick = "
+      if (calculation !== '') {
+      calculation += ')';
+      console.log(calculation);
+      } else {
+      console.log('Please add an opening bracket and a number first!')
+      }
+      ">
+        )
+      </button>
+    </p>
+    <p>
+      <button 
+      style = "
+      width : 25px;
+      text-align: center;
+      "
+      onclick = "
+      calculation += '7';
+      console.log(calculation);
+      ">
+        7
+      </button>
+      <button 
+      style = "
+      width : 25px;
+      text-align: center;
+      "
+      onclick = "
+      calculation += '8';
+      console.log(calculation);
+      ">
+        8
+      </button>
+      <button 
+      style = "
+      width : 25px;
+      text-align: center;
+      "
+      onclick = "
+      calculation += '9';
+      console.log(calculation);
+      ">
+        9
+      </button>
+      <button 
+      style = "
+      width : 25px;
+      text-align: center;
+      "
+      onclick = "
+      if (calculation !== '') {
+      calculation += ' * ';
+      console.log(calculation);
+      } else {
+      console.log('Please add a number first!')
+      }
+      ">
+        *
+      </button>
+      <button
+      style = "
+      width : 25px;
+      text-align: right;
+      "
+      onclick = "
+      if (calculation !== '') {
+      calculation =  Math.pow(eval(calculation), 2); 
+      console.log(calculation);
+      } else {
+      console.log('Please add a number first!')
+      }
+      ">
+        <sup style = "
+        font-size: 6px;
+        "> 
+        2
+        </sup>
+      </button>
+    </p>
+    <p>
+      <button 
+      style = "
+      width: 25px;
+      text-align: center;
+      "
+      onclick = "
+      calculation = '';
+      console.log(calculation);
+      "
+      >
+        C
+      </button>
+      <button 
+      style = "
+      width : 25px;
+      text-align: center;
+      "
+      onclick = "
+      calculation += '0';
+      console.log(calculation);
+      ">
+        0
+      </button>
+      <button 
+      style = "
+      width: 25px;
+      text-align: center;
+      "
+      onclick = "
+      calculation = eval(calculation);
+      console.log(calculation);
+      "
+      >
+        =
+      </button>
+      <button style = "
+      width: 25px;
+      text-align: center;
+      "
+      onclick= "
+      if (calculation !== '') {
+      calculation += ' / ';
+      console.log(calculation);
+      } else {
+      console.log('Please add a number first!')
+      }
+      "
+      >
+        /
+      </button>
+      <button style = "
+      width: 25px;
+      text-align: center;
+      "
+      onclick= "
+      if (calculation !== '') {
+      calculation =  Math.sqrt(eval(calculation)); 
+      console.log(calculation);
+      } else {
+      console.log('Please add a number first!')
+      }
+      "
+      >
+        &#x221A;
+      </button>
+    </p>
+    <script>
+      calculation = '';
+    </script>
+  </body>
+</html>
