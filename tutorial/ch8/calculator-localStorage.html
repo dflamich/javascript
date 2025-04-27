@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Calculator with functions</title>
+    <style>
+      button {
+        width : 25px;
+        text-align: center;
+      }
+    </style>
+  </head>
+  <body>
+    <p>
+      <button 
+      onclick = "
+      updateCalculation('1');
+      ">
+        1
+      </button>
+      <button
+      onclick = "
+      updateCalculation('2');
+      ">
+        2
+      </button>
+      <button 
+      onclick = "
+      updateCalculation('3');
+      ">
+        3
+      </button>
+      <button 
+      onclick = "
+      updateCalculation(' + ');
+      
+      ">
+        +
+      </button>
+      <button 
+      onclick = "
+      calculation += '(';
+      console.log(calculation);
+      ">
+        (
+      </button>
+    </p>
+    <p>
+      <button 
+      onclick = "
+      updateCalculation('4');
+      ">
+        4
+      </button>
+      <button 
+      onclick = "
+      updateCalculation('5');
+      ">
+        5
+      </button>
+      <button 
+      onclick = "
+      updateCalculation('6');
+      ">
+        6
+      </button>
+      <button 
+      onclick = "
+      updateCalculation(' - ');
+      ">
+        -
+      </button>
+      <button 
+      onclick = "
+      if (calculation !== '') {
+      calculation += ')';
+      console.log(calculation);
+      } else {
+      console.log('Please add an opening bracket and a number first!')
+      }
+      ">
+        )
+      </button>
+    </p>
+    <p>
+      <button 
+      onclick = "
+      updateCalculation('7');
+      ">
+        7
+      </button>
+      <button 
+      onclick = "
+      updateCalculation('8');
+      ">
+        8
+      </button>
+      <button 
+      onclick = "
+      updateCalculation('9');
+      ">
+        9
+      </button>
+      <button 
+      onclick = "
+      updateCalculation(' * ');
+      ">
+        *
+      </button>
+      <button
+      style = "text-align: end;"
+      onclick = "
+      updateCalculation('**2');
+      ">
+        <sup style = "
+        font-size: 6px;
+        "> 
+        2
+        </sup>
+      </button>
+    </p>
+    <p>
+      <button 
+      onclick = "
+      calculation = '';
+      console.log(calculation);
+      localStorage.setItem('currentCalculation', `${calculation}`);
+      "
+      >
+        C
+      </button>
+      <button 
+      onclick = "
+      updateCalculation('0');
+      ">
+        0
+      </button>
+      <button 
+      onclick = "
+      updateCalculation('=');
+      "
+      >
+        =
+      </button>
+      <button
+      onclick= "
+      updateCalculation(' / ');
+      "
+      >
+        /
+      </button>
+      <button 
+      onclick= "
+      updateCalculation('sqrt');
+      "
+      >
+        &#x221A;
+      </button>
+    </p>
+    <script>
+      let calculation = localStorage.getItem('currentCalculation') || '';
+      if (calculation) {
+        console.log(`Previous calculation: ${calculation}. Press C to clear`)
+      }
+      function updateCalculation(numOrOp = '') {
+        if (!isNaN(numOrOp)) {
+          calculation += numOrOp;
+          console.log(calculation);
+        }  
+        else if (numOrOp === '=') {
+          calculation = eval(calculation);
+          console.log(calculation);
+        } 
+
+        else if (numOrOp === 'sqrt') {
+          if (calculation !== '') {
+          calculation += '**0.5'; 
+          console.log(calculation);
+          } else {
+          console.log('Please add a number first!')
+          }
+
+        } 
+        
+        else {
+            if (calculation !== '') {
+              calculation += numOrOp;
+              console.log(calculation);
+            } else {
+              console.log('Please add a number first!')
+            }
+        }
+        localStorage.setItem('currentCalculation', `${calculation}`);
+      }
+    </script>
+  </body>
+</html>
