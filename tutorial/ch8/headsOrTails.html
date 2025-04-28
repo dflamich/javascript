@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Heads or Tails</title>
+  </head>
+  <body>
+    <button onclick ="playerPick('Heads')">
+      Heads
+    </button>
+
+    <button onclick ="playerPick('Tails')">
+      Tails
+    </button>
+
+    <button onclick ="
+      score.wins = 0
+      score.losses = 0
+      console.log(`You have reset the score. Wins: ${score.wins}, Losses: ${score.losses}`)
+    ">
+      Reset Score
+    </button>
+
+
+    <script>
+      let score = JSON.parse(localStorage.getItem('score')) || {
+        wins: 0,
+        losses: 0
+      };
+
+      function playerPick(pick) {
+        let result = ''
+
+        const flip = computerPick()
+
+        if (pick === flip) {
+          result = 'Win.'
+          score.wins ++
+        } else {
+          result = 'Loss.'
+          score.losses ++
+        }
+
+        localStorage.setItem('score', JSON.stringify(score));
+
+        console.log(`You picked ${pick}. The result of the flip: ${flip}. ${result}
+        Wins: ${score.wins}, Losses: ${score.losses}`);
+
+      }
+
+      function computerPick() {
+        x = Math.random();
+        return x >= 0 && x < 1/2 ? 'Heads' : 'Tails'
+      }
+
+      console.log(`The current score is: Wins: ${score.wins}, Losses: ${score.losses}. If you wish to reset the score before playing, please press 'Reset Score'`)
+    </script>
+  </body>
+</html>
