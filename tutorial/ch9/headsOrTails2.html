@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Heads or Tails</title>
+  </head>
+  <body>
+    <button onclick ="playerPick('Heads')">
+      Heads
+    </button>
+
+    <button onclick ="playerPick('Tails')">
+      Tails
+    </button>
+
+    <p class ="js-picks"></p>
+    <p class ="js-result"></p>
+    <p class ="js-score"></p>
+
+    <button onclick ="
+      score.wins = 0
+      score.losses = 0
+      updateScoreElement();
+      updateResultElement('reset');
+      updatePickElement();
+    ">
+      Reset Score
+    </button>
+
+
+    <script>
+      let score = JSON.parse(localStorage.getItem('score')) || {
+        wins: 0,
+        losses: 0
+      };
+
+      document.querySelector('.js-score')
+      .innerHTML = `The current score is: Wins: ${score.wins}, Losses: ${score.losses}. To reset the score press 'Reset score', to play the game pick 'Heads' or 'Tails' .`
+
+      function playerPick(pick) {
+        let result = ''
+
+        const flip = computerPick()
+
+        if (pick === flip) {
+          result = 'You win.'
+          score.wins ++
+        } else {
+          result = 'You lose.'
+          score.losses ++
+        }
+
+        localStorage.setItem('score', JSON.stringify(score));
+
+        updateScoreElement();
+        updateResultElement(result);
+        updatePickElement(pick, flip);
+      }
+
+      function computerPick() {
+        x = Math.random();
+        return x >= 0 && x < 1/2 ? 'Heads' : 'Tails'
+      }
+
+      function updateScoreElement () {
+        const scoreElement = document
+          .querySelector('.js-score');
+
+        scoreElement.innerHTML = `Wins: ${score.wins}, Losses: ${score.losses}.`
+      }
+
+      function updateResultElement (result) {
+        const flipResultElement = document
+          .querySelector('.js-result');
+        if (result === 'reset') {
+          flipResultElement.innerHTML = `You have reset the score.`
+        } else {
+          flipResultElement.innerHTML =  `${result}`
+        }
+      }
+
+      function updatePickElement (pick, flip) {
+        const pickElement = document
+        .querySelector('.js-picks')
+        if (!pick) {
+          pickElement.innerHTML = '';
+        } else {
+          pickElement.innerHTML = `You picked: ${pick}. The result of the flip: ${flip}.` 
+        }
+      }
+
+    </script>
+  </body>
+</html>
