@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Typer</title>
+  </head>
+  <body>
+
+    <input 
+    placeholder="Start typing to make text apppear below"
+    style="
+    width: 250px;"
+    class="js-text-input"
+    onkeyup="typedText(event)"
+    >
+    <p class ="js-typed-text"></p>
+    <script>
+      function typedText(event) {
+
+        let pressedKey = document
+          .querySelector('.js-text-input')
+          .value
+        
+        document
+          .querySelector('.js-typed-text')
+          .innerHTML = pressedKey;
+        
+        
+      }
+    </script>
+  </body>
+</html>

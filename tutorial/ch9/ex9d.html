@@ -9,7 +9,7 @@
     placeholder="Enter your name"
     class ="js-name-input"
     onkeydown="
-      enterName()
+      enterName(event)
     "
     >
     <button 
@@ -29,7 +29,7 @@
         nameElement.value = '';
       }
 
-      function enterName() {
+      function enterName(event) {
         if (event.key === 'Enter') {
           submitName()
         }

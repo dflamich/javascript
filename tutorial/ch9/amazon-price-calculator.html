@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Cost calculator</title>
+  </head>
+  <body>
+
+    <p>Cost calculator</p>
+    <input 
+    placeholder="Enter price"
+    class ="js-price-input"
+    onkeydown="enterKeyDown(event)"
+    >
+    <button
+    class ="js-calculate-button"
+    onclick="calculateCost()"
+    >
+      Calculate
+    </button>
+    <p class="js-cost"></p>
+
+    <script>
+      function calculateCost () {
+        let productPrice = document
+          .querySelector('.js-price-input')
+          .value
+        if (productPrice < 40) {
+          productPrice = Number(productPrice) + 10;
+        } 
+        
+        productPrice = productPrice.toFixed(2)
+
+        /* 
+        Rounding to 2 digits is of course also possible by taking the number 100x, then using Math.round() and lastly dividing by 100, but that is slightly longer
+        */
+        document.querySelector('.js-cost')
+        .innerHTML = `The total cost of the order is $${productPrice}.` 
+      }
+
+    function enterKeyDown (event) {
+      if (event.key === 'Enter') {
+        calculateCost()
+      }
+    }
+    </script>
+  </body>
+</html>
