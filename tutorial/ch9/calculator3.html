@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Calculator with functions</title>
+    <style>
+      button {
+        height: 25px;
+        width : 25px;
+        text-align: center;
+      }
+    </style>
+  </head>
+  <body>
+    <p>
+      <button 
+      onclick = "
+      updateCalculation('1');
+      ">
+        1
+      </button>
+      <button
+      onclick = "
+      updateCalculation('2');
+      ">
+        2
+      </button>
+      <button 
+      onclick = "
+      updateCalculation('3');
+      ">
+        3
+      </button>
+      <button 
+      onclick = "
+      updateCalculation(' + ');
+      
+      ">
+        +
+      </button>
+      <button 
+      onclick = "
+      calculation += '(';
+      displayCalculation(calculation);
+      ">
+        (
+      </button>
+    </p>
+    <p>
+      <button 
+      onclick = "
+      updateCalculation('4');
+      ">
+        4
+      </button>
+      <button 
+      onclick = "
+      updateCalculation('5');
+      ">
+        5
+      </button>
+      <button 
+      onclick = "
+      updateCalculation('6');
+      ">
+        6
+      </button>
+      <button 
+      onclick = "
+      updateCalculation(' - ');
+      ">
+        -
+      </button>
+      <button 
+      onclick = "
+      if (calculation !== '') {
+      calculation += ')';
+      displayCalculation(calculation);
+      } else {
+      displayCalculation('Please add an opening bracket and a number first!')
+      }
+      ">
+        )
+      </button>
+    </p>
+    <p>
+      <button 
+      onclick = "
+      updateCalculation('7');
+      ">
+        7
+      </button>
+      <button 
+      onclick = "
+      updateCalculation('8');
+      ">
+        8
+      </button>
+      <button 
+      onclick = "
+      updateCalculation('9');
+      ">
+        9
+      </button>
+      <button 
+      onclick = "
+      updateCalculation(' * ');
+      ">
+        *
+      </button>
+      <button
+      style = "text-align: end;"
+      onclick = "
+      updateCalculation(' ** ');
+      ">
+        <sup style = "
+        font-size: 6px;
+        "> 
+        y
+        </sup>
+      </button>
+    </p>
+    <p>
+      <button 
+      onclick = "
+      calculation = '';
+      displayCalculation
+        ('Calculation cleared')
+      localStorage.setItem('currentCalculation', `${calculation}`);
+      "
+      >
+        C
+      </button>
+      <button 
+      onclick = "
+      updateCalculation('0');
+      ">
+        0
+      </button>
+      <button 
+      onclick = "
+      updateCalculation('=');
+      "
+      >
+        =
+      </button>
+      <button
+      onclick= "
+      updateCalculation(' / ');
+      "
+      >
+        /
+      </button>
+      <button 
+      onclick= "
+      updateCalculation('.');
+      "
+      style="vertical-align: top;"
+      >
+        <div style = "
+        vertical-align: middle;
+        height: 5px;
+        ">
+          &#8226;
+        </div>
+      </button>
+    </p>
+    <p class ="js-calculation"></p>
+    <script>
+      let calculation = localStorage.getItem('currentCalculation') || '';
+      if (calculation) {
+        displayCalculation(`Previous calculation: ${calculation}. Press C to clear`)
+      } else {
+        displayCalculation('No previous calculations. Press a number to calulate')
+      }
+      function updateCalculation(numOrOp = '') {
+        if (!isNaN(numOrOp)) {
+          calculation += numOrOp;
+          displayCalculation(calculation);
+        }  
+        else if (numOrOp === '=') {
+          calculation = eval(calculation);
+          displayCalculation(calculation);
+        }  
+        else {
+            if (calculation !== '') {
+              calculation += numOrOp;
+              displayCalculation  (calculation);
+            } else {
+              displayCalculation('Please add a number first!')
+            }
+        }
+        localStorage.setItem('currentCalculation', `${calculation}`);
+      }
+
+      function displayCalculation (calculation) {
+        let calculationElement = document
+              .querySelector
+                ('.js-calculation')
+                  .innerHTML = calculation;
+      }
+    </script>
+  </body>
+</html>
