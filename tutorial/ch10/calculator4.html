@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Calculator with functions</title>
+    <link 
+      rel="stylesheet" 
+      href="styles/calculator4.css"
+    >
+  </head>
+  <body>
+    <p class ="js-calculation calculation">
+    </p>
+
+    <p class = "calculator-buttons">
+      <button 
+        onclick = "
+        updateCalculation('1');"
+      >
+        1
+      </button>
+      <button
+        onclick = "
+        updateCalculation('2');"
+      >
+        2
+      </button>
+      <button 
+        onclick = "
+        updateCalculation('3');"
+      >
+        3
+      </button>
+      <button 
+        onclick = "
+        updateCalculation(' + ');"
+        class ="operation-button"
+      >
+        +
+      </button>
+      <button 
+        onclick = "
+        calculation += '(';
+        displayCalculation(calculation);"
+        class ="operation-button"
+      >
+        (
+      </button>
+    </p>
+    <p class = "calculator-buttons">
+      <button 
+        onclick = "
+        updateCalculation('4');"
+      >
+        4
+      </button>
+      <button 
+        onclick = "
+        updateCalculation('5');"
+      >
+        5
+      </button>
+      <button 
+        onclick = "
+        updateCalculation('6');"
+      >
+        6
+      </button>
+      <button 
+        onclick = "
+        updateCalculation(' - ');"
+        class ="operation-button"
+      >
+        -
+      </button>
+      <button 
+        onclick = "
+        if (calculation !== '') {
+        calculation += ')';
+        displayCalculation(calculation);
+        } else {
+        displayCalculation('Please add an opening bracket and a number first!')
+        }"
+        class ="operation-button"
+      >
+        )
+      </button>
+    </p>
+    <p class = "calculator-buttons">
+      <button 
+        onclick = "
+        updateCalculation('7');"
+      >
+        7
+      </button>
+      <button 
+        onclick = "
+        updateCalculation('8');"
+      >
+        8
+      </button>
+      <button 
+        onclick = "
+        updateCalculation('9');"
+      >
+        9
+      </button>
+      <button 
+        onclick = "
+        updateCalculation(' * ');"
+        class ="operation-button"
+      >
+        *
+      </button>
+      <button
+        style = "text-align: end;"
+        onclick = "
+        updateCalculation(' ** ');"
+        class ="operation-button"
+      >
+        x
+        <sup style = "
+        font-size: 10px;
+        "> 
+        y
+        </sup>
+      </button>
+    </p>
+    <p class = "calculator-buttons">
+      <button 
+        onclick = "
+        calculation = '';
+        displayCalculation
+          ('Calculation cleared')
+        localStorage
+          .setItem('currentCalculation', 
+          `${calculation}`);
+        changeClearButton();"
+        class = "js-clear-button"
+        
+      >
+        C
+      </button>
+      <button 
+        onclick = "
+        updateCalculation('0');"
+      >
+        0
+      </button>
+      <button 
+        onclick = "
+        updateCalculation('=');"
+      >
+        =
+      </button>
+      <button
+        onclick= "
+        updateCalculation(' / ');"
+        class ="operation-button"
+      >
+        /
+      </button>
+      <button 
+        onclick= "
+        updateCalculation('.');"
+        style="vertical-align: top;"
+        class ="operation-button"
+      >
+        <div style = "
+        vertical-align: middle;
+        height: 5px;
+        ">
+          &#8226;
+        </div>
+      </button>
+    </p>
+
+    <script src="scripts/calculator4.js">
+    </script>
+  </body>
+</html>

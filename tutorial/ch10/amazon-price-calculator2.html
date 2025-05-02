@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Cost calculator</title>
+    <link 
+      rel="stylesheet" 
+      href="styles/amazon-price-calculator2.css"
+    >  
+  </head>
+  <body>
+    <p>Cost calculator</p>
+
+    <input 
+    placeholder="Enter price"
+    class ="js-price-input price-input"
+    onkeydown="enterKeyDown(event)"
+    >
+
+    <button
+    class ="js-calculate-button calculate-button"
+    onclick="calculateCost()"
+    >
+      Calculate
+    </button>
+    
+    <p class="js-cost"></p>
+
+    <script src="
+      scripts/amazon-price-calculator.js
+    ">
+    </script>
+  </body>
+</html>
