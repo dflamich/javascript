@@ -1,0 +1,27 @@
+.coin-container-container {
+  display: flex;
+  height: 200px;
+  justify-content: center;
+}
+
+.coin-container {
+  flex: 1;
+  display: flex;
+  max-width: 200px;
+  justify-content: center;
+  align-items: center;
+}
+.coin-button {
+  background-color: transparent;
+  border: none;
+  padding: 0px;
+  cursor: pointer;
+  width: 120px;
+  height: 120px;
+  transition: width 0.15s, height 0.15s
+}
+
+.coin-button:hover {
+  width: 130px;
+  height: 130px; 
+}

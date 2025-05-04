@@ -1,0 +1,15 @@
+.text-container {
+  display: flex;
+  justify-content: center;
+}
+
+.picks {
+  font-size: 18px;
+}
+
+.pick-icon {
+  width: 60px;
+}
+.result {
+  font-size: 25px;
+}

@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Heads or Tails</title>
+    <link rel ="stylesheet" href="styles/headsOrTails/general.css">
+    <link rel ="stylesheet" href="styles/headsOrTails/coins.css">
+    <link rel ="stylesheet" href="styles/headsOrTails/paragraphs.css">
+    <link rel ="stylesheet" href="styles/headsOrTails/reset-button.css">
+  </head>
+  <body>
+    <div class ="coin-container-container">
+      <div class ="coin-container">
+        <button 
+          onclick ="playerPick('Heads')"
+          class ="coin-button" 
+        >
+            <img src="images/coin-heads-icon.webp">
+        </button>
+      </div>
+      <div class ="coin-container">
+        <button 
+          onclick ="playerPick('Tails')"
+          class ="coin-button"  
+        >
+            <img src="images/coin-tails-icon.webp">
+        </button>
+      </div>
+    </div>
+    <div class="text-container">
+      <p class ="js-picks picks"></p>
+    </div>
+    <div class="text-container">
+      <p class ="js-result result"></p>
+    </div><div class="text-container">
+      <p class ="js-score score"></p>
+    </div>
+
+
+    <div class="reset-button-container">
+      <button 
+        onclick ="
+          score.wins = 0
+          score.losses = 0
+          updateScoreElement();
+          updateResultElement('reset');
+          updatePickElement();"
+        class ="reset-button"
+      >
+        Reset Score
+      </button>
+    </div>
+    
+    <script src="scripts/headsOrTails/initial.js"></script>
+    <script src="scripts/headsOrTails/picks.js"></script>
+    <script src="scripts/headsOrTails/updateElements.js"></script>
+  </body>
+</html>
